@@ -1,0 +1,126 @@
+:root {
+  color-scheme: dark;
+  --shell-bg: #08111f;
+  --shell-bg-soft: #10233d;
+  --shell-panel: rgba(14, 26, 45, 0.88);
+  --shell-border: rgba(255, 255, 255, 0.1);
+  --shell-accent: #f5b342;
+  --shell-accent-strong: #ffcc66;
+  --shell-text: #edf2f7;
+  --shell-muted: #aab6c5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--shell-text);
+  background:
+    radial-gradient(circle at top left, rgba(245, 179, 66, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(84, 160, 255, 0.18), transparent 24%),
+    linear-gradient(180deg, #050b14 0%, var(--shell-bg) 45%, #0d1a2d 100%);
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--shell-accent-strong);
+}
+
+.app-shell {
+  position: relative;
+}
+
+.surface-panel,
+.card,
+.navbar,
+.footer-bar,
+.toast,
+.modal-content {
+  backdrop-filter: blur(12px);
+}
+
+.page-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.03em;
+}
+
+.soft-border {
+  border: 1px solid var(--shell-border);
+}
+
+.surface-panel {
+  background: var(--shell-panel);
+  border: 1px solid var(--shell-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+
+.hero-chip,
+.status-chip {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.muted-copy {
+  color: var(--shell-muted);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--shell-accent);
+  --bs-btn-border-color: var(--shell-accent);
+  --bs-btn-color: #132034;
+  --bs-btn-hover-bg: var(--shell-accent-strong);
+  --bs-btn-hover-border-color: var(--shell-accent-strong);
+  --bs-btn-hover-color: #132034;
+}
+
+.btn-outline-light {
+  --bs-btn-border-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-link.active {
+  color: var(--shell-accent-strong) !important;
+}
+
+.navbar-brand {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.04em;
+}
+
+.footer-bar {
+  background: rgba(4, 8, 15, 0.8);
+  border-top: 1px solid var(--shell-border);
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .page-title {
+    font-size: 1.9rem;
+  }
+}

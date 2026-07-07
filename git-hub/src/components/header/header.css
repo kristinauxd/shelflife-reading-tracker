@@ -1,0 +1,19 @@
+.navbar {
+  position: sticky;
+  top: 1rem;
+  z-index: 1030;
+}
+
+.navbar .nav-link,
+.navbar .btn-link {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.navbar .btn-link {
+  text-decoration: none;
+}
+
+.navbar .btn-link:hover,
+.navbar .nav-link:hover {
+  color: var(--shell-accent-strong);
+}

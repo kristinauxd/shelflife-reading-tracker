@@ -1,0 +1,15 @@
+.profile-page {
+  display: grid;
+}
+
+.avatar-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(245, 179, 66, 0.22), rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--shell-border);
+}

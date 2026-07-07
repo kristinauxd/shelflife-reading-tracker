@@ -1,0 +1,10 @@
+.protected-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.protected-empty-state {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+}

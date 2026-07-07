@@ -1,0 +1,9 @@
+.toast-container {
+  z-index: 1090;
+}
+
+.toast {
+  color: var(--shell-text);
+  background: rgba(9, 17, 29, 0.95);
+  border: 1px solid var(--shell-border);
+}
