@@ -3,6 +3,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './styles/global.css';
 
 import { initRouter } from './router.js';
+import { showToast } from './components/toast-container/toast-container.js';
+import { verifySupabaseConnection } from './services/supabaseClient.js';
 
 const app = document.getElementById('app');
 
@@ -18,3 +20,19 @@ app.innerHTML = `
 `;
 
 initRouter();
+
+void verifySupabaseConnection()
+  .then(() => {
+    showToast({
+      title: 'Supabase connected',
+      message: 'Frontend configuration is reaching the Supabase project.',
+      variant: 'success',
+    });
+  })
+  .catch((error) => {
+    showToast({
+      title: 'Supabase connection failed',
+      message: error.message,
+      variant: 'danger',
+    });
+  });
