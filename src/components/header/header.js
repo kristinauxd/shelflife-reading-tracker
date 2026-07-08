@@ -26,7 +26,7 @@ export function renderHeader(pathname) {
   const user = getUser();
   const links = [
     navLink({ href: '/', label: 'Home', pathname }),
-    navLink({ href: '/books', label: 'Books', pathname }),
+    navLink({ href: '/books', label: 'Browse Books', pathname }),
   ];
 
   if (user) {
@@ -41,13 +41,13 @@ export function renderHeader(pathname) {
 
   const authAction = user
     ? `
-      <button class="btn btn-outline-light btn-sm ms-lg-3 mt-3 mt-lg-0" type="button" data-action="logout">
+      <button class="btn btn-outline-light btn-sm ms-lg-3 mt-3 mt-lg-0 px-3" type="button" data-action="logout">
         Sign out
       </button>
     `
     : `
-      <a class="btn btn-primary btn-sm ms-lg-3 mt-3 mt-lg-0" data-link href="/login">
-        Sign in
+      <a class="btn btn-primary btn-sm ms-lg-3 mt-3 mt-lg-0 px-3" data-link href="/login">
+        Register / Login
       </a>
     `;
 

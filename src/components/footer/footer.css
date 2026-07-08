@@ -1,3 +1,12 @@
 .footer-bar {
   border-top: 1px solid var(--shell-border);
+  backdrop-filter: blur(12px);
+}
+
+.footer-link {
+  color: var(--shell-text);
+}
+
+.footer-link:hover {
+  color: var(--shell-accent-strong);
 }

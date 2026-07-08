@@ -1,11 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark surface-panel mx-3 mt-3 mx-lg-4">
-  <div class="container-fluid px-3 px-lg-4">
-    <a class="navbar-brand fw-semibold" data-link href="/">ShelfLife</a>
+  <div class="container-fluid px-3 px-lg-4 py-1">
+    <a class="navbar-brand d-flex align-items-center gap-3" data-link href="/">
+      <span class="brand-mark d-inline-flex align-items-center justify-content-center">S</span>
+      <span class="d-flex flex-column lh-sm">
+        <span class="brand-name fw-semibold">ShelfLife</span>
+        <span class="brand-tagline small muted-copy">For readers who keep moving</span>
+      </span>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="primaryNav">
-      <div class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+      <div class="navbar-nav ms-auto align-items-lg-center gap-lg-1 pt-3 pt-lg-0">
         {{links}}
         {{authAction}}
       </div>

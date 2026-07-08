@@ -1,55 +1,165 @@
-<section class="home-hero fade-in-up">
-  <div class="surface-panel p-4 p-lg-5 mb-4">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-7">
-        <span class="badge text-bg-warning hero-chip mb-3">Reading tracker scaffold</span>
-        <h1 class="page-title display-5 mb-3">Track every shelf, book, and reading session.</h1>
-        <p class="lead muted-copy mb-4">
-          This Vite starter keeps the app split into route modules, layout components, and page-specific styles so the codebase stays easy to extend.
+<section class="home-page fade-in-up">
+  <div class="surface-panel surface-panel--strong p-4 p-lg-5 mb-4 home-hero">
+    <div class="hero-glow hero-glow--gold"></div>
+    <div class="hero-glow hero-glow--blue"></div>
+    <div class="row align-items-center g-4 position-relative">
+      <div class="col-lg-7 col-xl-6">
+        <span class="pill-tag pill-tag--accent mb-3">A reading home for modern shelves</span>
+        <h1 class="page-title display-4 mb-3 hero-statement">Read with intention. Keep every chapter in view.</h1>
+        <p class="lead muted-copy mb-4 pe-lg-5">
+          ShelfLife turns reading into a calm, elegant ritual: log what you own, what you are reading, what you loved, and what you want to remember next.
         </p>
-        <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-primary" data-link href="/books">Browse books</a>
-          <a class="btn btn-outline-light" data-link href="/login">Sign in</a>
+        <div class="d-flex flex-wrap gap-2 gap-md-3">
+          <a class="btn btn-primary btn-lg px-4" data-link href="/login">Register / Login</a>
+          <a class="btn btn-outline-light btn-lg px-4" data-link href="/books">Browse Books</a>
+        </div>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <span class="pill-tag">Track reading progress</span>
+          <span class="pill-tag">Save thoughtful reviews</span>
+          <span class="pill-tag">Collect quotes and goals</span>
         </div>
       </div>
-      <div class="col-lg-5">
-        <div class="surface-panel p-4 h-100">
-          <div class="d-flex justify-content-between align-items-start mb-3">
+
+      <div class="col-lg-5 col-xl-6">
+        <div class="hero-figure surface-panel p-4 p-md-5 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-4">
             <div>
-              <div class="small text-uppercase muted-copy">Current stack</div>
-              <div class="h4 mb-0">Vite + Bootstrap</div>
+              <div class="small text-uppercase muted-copy mb-1">Reading at a glance</div>
+              <div class="h4 mb-0">Curated, calm, and organized</div>
             </div>
-            <span class="badge text-bg-success">SPA</span>
+            <span class="pill-tag pill-tag--accent">Demo ready</span>
           </div>
-          <ul class="list-unstyled mb-0 d-grid gap-2">
-            <li class="d-flex justify-content-between"><span>Routing</span><strong>History API</strong></li>
-            <li class="d-flex justify-content-between"><span>Structure</span><strong>Modular</strong></li>
-            <li class="d-flex justify-content-between"><span>UI</span><strong>Bootstrap 5</strong></li>
-            <li class="d-flex justify-content-between"><span>Auth</span><strong>Aware navigation</strong></li>
-          </ul>
+
+          <div class="row g-3 align-items-center">
+            <div class="col-md-5">
+              <div class="reading-orbit mx-auto position-relative d-flex align-items-center justify-content-center">
+                <div class="reading-orbit__ring reading-orbit__ring--outer"></div>
+                <div class="reading-orbit__ring reading-orbit__ring--inner"></div>
+                <div class="reading-orbit__core d-flex flex-column align-items-center justify-content-center text-center px-3">
+                  <div class="small text-uppercase muted-copy mb-1">This season</div>
+                  <div class="display-6 fw-semibold lh-1">25</div>
+                  <div class="small muted-copy">sample books</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-7">
+              <div class="d-grid gap-3">
+                <div class="mini-panel p-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="icon-badge">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 19.5V5.75A1.75 1.75 0 0 1 5.75 4H19" />
+                        <path d="M8 4v16" />
+                        <path d="M8 9h9" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="fw-semibold">One shelf, many moods</div>
+                      <div class="small muted-copy">Keep your library, notes, and progress in one place.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mini-panel p-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="icon-badge">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 20V10" />
+                        <path d="M12 20V4" />
+                        <path d="M19 20v-8" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="fw-semibold">Track your rhythm</div>
+                      <div class="small muted-copy">See what is finished, in progress, or next on deck.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mini-panel p-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="icon-badge">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 21s7-4.35 7-10a7 7 0 1 0-14 0c0 5.65 7 10 7 10Z" />
+                        <path d="M9.5 10.5 11 12l3.5-3.5" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="fw-semibold">Keep a thoughtful trail</div>
+                      <div class="small muted-copy">Attach reviews, quotes, and yearly goals to every reader.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-3">
+            <div class="col-sm-4">
+              <div class="hero-stat p-3 h-100">
+                <div class="small text-uppercase muted-copy mb-1">Track</div>
+                <div class="fw-semibold">Library progress</div>
+                <div class="small muted-copy">Statuses, pages, and reading sessions.</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="hero-stat p-3 h-100">
+                <div class="small text-uppercase muted-copy mb-1">Review</div>
+                <div class="fw-semibold">Ratings with nuance</div>
+                <div class="small muted-copy">Capture stars, spoiler notes, and reflections.</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="hero-stat p-3 h-100">
+                <div class="small text-uppercase muted-copy mb-1">Reflect</div>
+                <div class="fw-semibold">Quotes & goals</div>
+                <div class="small muted-copy">Save lines worth revisiting all year.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row g-3">
+  <div class="row g-3 g-lg-4">
     <div class="col-md-4">
-      <div class="surface-panel p-4 h-100">
-        <div class="fw-semibold mb-2">Separate page modules</div>
-        <div class="muted-copy small">Each route owns its HTML fragment, styles, and JavaScript initializer.</div>
-      </div>
+      <article class="feature-card p-4 p-lg-4 h-100">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5V5.75A1.75 1.75 0 0 1 5.75 4H19" />
+            <path d="M8 4v16" />
+            <path d="M8 9h9" />
+          </svg>
+        </div>
+        <div class="feature-card__title mb-2">Track</div>
+        <p class="muted-copy mb-0">Organize your shelf by status, pages, and reading pace so every title has a clear place in your routine.</p>
+      </article>
     </div>
     <div class="col-md-4">
-      <div class="surface-panel p-4 h-100">
-        <div class="fw-semibold mb-2">Protected layouts</div>
-        <div class="muted-copy small">Protected pages are wrapped with a reusable access-aware shell component.</div>
-      </div>
+      <article class="feature-card p-4 p-lg-4 h-100">
+        <div class="feature-card__icon feature-card__icon--blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 5.5h18" />
+            <path d="M3 12h18" />
+            <path d="M3 18.5h18" />
+            <path d="m14 5.5-2 7 3 1.5-1.5 4" />
+          </svg>
+        </div>
+        <div class="feature-card__title mb-2">Review</div>
+        <p class="muted-copy mb-0">Write ratings and notes that feel considered, not noisy, with just enough room for the details that matter.</p>
+      </article>
     </div>
     <div class="col-md-4">
-      <div class="surface-panel p-4 h-100">
-        <div class="fw-semibold mb-2">Toast-ready feedback</div>
-        <div class="muted-copy small">The toast container is prewired for login, logout, and navigation notices.</div>
-      </div>
+      <article class="feature-card p-4 p-lg-4 h-100">
+        <div class="feature-card__icon feature-card__icon--green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 21s7-4.35 7-10a7 7 0 1 0-14 0c0 5.65 7 10 7 10Z" />
+            <path d="M9.5 10.5 11 12l3.5-3.5" />
+          </svg>
+        </div>
+        <div class="feature-card__title mb-2">Reflect</div>
+        <p class="muted-copy mb-0">Hold on to favorite quotes and yearly reading goals so the story of your reading life stays easy to revisit.</p>
+      </article>
     </div>
   </div>
 </section>

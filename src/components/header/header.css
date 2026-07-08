@@ -4,6 +4,30 @@
   z-index: 1030;
 }
 
+.navbar-brand {
+  min-width: 0;
+}
+
+.brand-mark {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(160deg, rgba(239, 180, 84, 0.95), rgba(255, 211, 122, 0.75));
+  color: #122036;
+  font-family: var(--shell-font-display);
+  font-size: 1.3rem;
+  box-shadow: 0 10px 24px rgba(239, 180, 84, 0.24);
+}
+
+.brand-name {
+  font-size: 1.05rem;
+}
+
+.brand-tagline {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .navbar .nav-link,
 .navbar .btn-link {
   color: rgba(255, 255, 255, 0.82);
@@ -16,4 +40,28 @@
 .navbar .btn-link:hover,
 .navbar .nav-link:hover {
   color: var(--shell-accent-strong);
+}
+
+.navbar .nav-link {
+  border-radius: 999px;
+  padding-block: 0.55rem;
+  padding-inline: 0.9rem;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.navbar .btn {
+  border-radius: 999px;
+}
+
+.navbar .btn-primary {
+  box-shadow: none;
+}
+
+.navbar .btn-outline-light {
+  background: rgba(255, 255, 255, 0.03);
 }
