@@ -1,26 +1,78 @@
 <section class="profile-page fade-in-up">
-  <div class="row g-3">
+  <div class="row g-4 align-items-stretch">
     <div class="col-lg-4">
-      <div class="surface-panel p-4 h-100 text-center">
-        <div class="avatar-circle mx-auto mb-3">{{initials}}</div>
-        <h1 class="page-title h3 mb-1">{{name}}</h1>
-        <div class="muted-copy text-uppercase small">{{role}}</div>
-      </div>
-    </div>
-    <div class="col-lg-8">
-      <div class="surface-panel p-4 p-lg-5 h-100">
-        <span class="badge text-bg-warning status-chip mb-3">Profile</span>
-        <h2 class="h4 mb-3">Preferences</h2>
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Email notifications</label>
-            <div class="form-control form-control-lg bg-transparent text-light">Enabled</div>
+      <div class="surface-panel surface-panel--strong p-4 h-100 profile-summary">
+        <div class="text-center">
+          <div class="profile-avatar-wrap mx-auto mb-3">
+            <div class="avatar-circle mx-auto" data-avatar-fallback>{{initials}}</div>
+            <img class="profile-avatar d-none" data-avatar-image alt="Profile avatar" />
           </div>
-          <div class="col-md-6">
-            <label class="form-label">Weekly digest</label>
-            <div class="form-control form-control-lg bg-transparent text-light">Sunday</div>
+          <span class="pill-tag pill-tag--accent mb-3">Profile</span>
+          <h1 class="page-title h3 mb-1" data-profile-name>{{name}}</h1>
+          <div class="muted-copy mb-2" data-profile-email>{{email}}</div>
+          <div class="pill-tag" data-profile-role>{{role}}</div>
+        </div>
+
+        <div class="row g-3 mt-4">
+          <div class="col-12 col-sm-4 col-lg-12">
+            <div class="stat-card p-3 h-100">
+              <div class="small text-uppercase muted-copy mb-1">Finished books</div>
+              <div class="display-6 mb-0" data-stat-finished>0</div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 col-lg-12">
+            <div class="stat-card p-3 h-100">
+              <div class="small text-uppercase muted-copy mb-1">Average rating</div>
+              <div class="display-6 mb-0" data-stat-rating>0.0</div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 col-lg-12">
+            <div class="stat-card p-3 h-100">
+              <div class="small text-uppercase muted-copy mb-1">Saved quotes</div>
+              <div class="display-6 mb-0" data-stat-quotes>0</div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="surface-panel p-4 p-lg-5 h-100">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+          <div>
+            <span class="pill-tag mb-3">Edit profile</span>
+            <h2 class="page-title h1 mb-2">Shape your reading identity</h2>
+            <p class="muted-copy mb-0">Update your display name, bio, and avatar. Changes are saved to Supabase and the avatar is stored in the public avatars bucket.</p>
+          </div>
+          <button class="btn btn-primary px-4" type="submit" form="profile-form">Save changes</button>
+        </div>
+
+        <form id="profile-form" class="d-grid gap-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="profile-name">Display name</label>
+              <input id="profile-name" name="display_name" class="form-control form-control-lg" type="text" value="{{name}}" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="profile-avatar">Avatar image</label>
+              <input id="profile-avatar" name="avatar" class="form-control form-control-lg" type="file" accept="image/*" />
+            </div>
+          </div>
+
+          <div>
+            <label class="form-label" for="profile-bio">Bio</label>
+            <textarea id="profile-bio" name="bio" class="form-control" rows="5" placeholder="Write a short note about your reading life.">{{bio}}</textarea>
+          </div>
+
+          <div class="profile-preview surface-panel p-3 d-flex align-items-center gap-3">
+            <img class="profile-preview__image d-none" data-avatar-preview alt="Avatar preview" />
+            <div class="avatar-circle avatar-circle--small" data-avatar-preview-fallback>{{initials}}</div>
+            <div>
+              <div class="fw-semibold mb-1">Avatar preview</div>
+              <div class="small muted-copy">Choose an image and it will be uploaded to Supabase Storage on save.</div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -13,3 +13,15 @@
 .auth-page .login-quote {
   color: var(--shell-muted);
 }
+
+.auth-page .page-title {
+  line-height: 0.98;
+}
+
+.auth-page .mini-panel {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.auth-page .login-quote {
+  color: var(--shell-muted);
+}

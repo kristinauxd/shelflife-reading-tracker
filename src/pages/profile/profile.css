@@ -2,14 +2,66 @@
   display: grid;
 }
 
+.profile-summary {
+  overflow: hidden;
+}
+
+.profile-avatar-wrap {
+  position: relative;
+  width: 112px;
+  height: 112px;
+}
+
 .avatar-circle {
-  width: 96px;
-  height: 96px;
+  width: 112px;
+  height: 112px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 700;
   background: linear-gradient(135deg, rgba(245, 179, 66, 0.22), rgba(255, 255, 255, 0.08));
   border: 1px solid var(--shell-border);
+  color: var(--shell-text);
+  overflow: hidden;
+}
+
+.avatar-circle--small {
+  width: 64px;
+  height: 64px;
+  font-size: 1.35rem;
+  flex: 0 0 auto;
+}
+
+.profile-avatar,
+.profile-preview__image {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--shell-border);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.profile-preview__image {
+  width: 64px;
+  height: 64px;
+}
+
+.stat-card {
+  border: 1px solid var(--shell-border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.profile-preview {
+  border-radius: 1.1rem;
+}
+
+.profile-page .page-title {
+  line-height: 0.98;
+}
+
+.profile-page textarea.form-control {
+  min-height: 140px;
 }

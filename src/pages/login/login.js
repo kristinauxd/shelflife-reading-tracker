@@ -2,7 +2,7 @@ import './login.css';
 import template from './login.html?raw';
 
 import { navigate } from '../../router.js';
-import { signIn } from '../../state/auth.js';
+import { signInWithCredentials } from '../../state/auth.js';
 import { showToast } from '../../components/toast-container/toast-container.js';
 
 export function render() {
@@ -11,23 +11,46 @@ export function render() {
 
 export function init() {
   const form = document.getElementById('login-form');
+  const demoButtons = document.querySelectorAll('[data-demo-account]');
+
+  demoButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const email = button.getAttribute('data-demo-account') ?? '';
+      const passwordField = document.getElementById('login-password');
+      const emailField = document.getElementById('login-email');
+
+      if (emailField) {
+        emailField.value = email;
+      }
+
+      if (passwordField) {
+        passwordField.value = 'pass123';
+        passwordField.focus();
+      }
+    });
+  });
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const formData = new FormData(form);
-    const name = String(formData.get('name') ?? '').trim();
-    const role = String(formData.get('role') ?? 'member');
+    const email = String(formData.get('email') ?? '').trim().toLowerCase();
+    const password = String(formData.get('password') ?? '');
 
-    if (!name) {
-      showToast({ title: 'Missing name', message: 'Enter a display name to continue.', variant: 'warning' });
+    if (!email || !password) {
+      showToast({ title: 'Missing credentials', message: 'Enter a demo email and password to continue.', variant: 'warning' });
       return;
     }
 
-    signIn({ name, role });
-    showToast({ title: 'Signed in', message: `Welcome back, ${name}.`, variant: 'success' });
+    void signInWithCredentials({ email, password })
+      .then((user) => {
+        showToast({ title: 'Signed in', message: `Welcome back, ${user.name}.`, variant: 'success' });
 
-    const redirect = new URLSearchParams(window.location.search).get('redirect') || '/dashboard';
-    navigate(redirect, { replace: true });
+        const redirect = new URLSearchParams(window.location.search).get('redirect') || '/dashboard';
+        navigate(redirect, { replace: true });
+      })
+      .catch((error) => {
+        showToast({ title: 'Sign in failed', message: error.message, variant: 'danger' });
+      });
   });
 }

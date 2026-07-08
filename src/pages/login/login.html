@@ -5,21 +5,21 @@
         <span class="pill-tag pill-tag--accent mb-3">Authentication</span>
         <h1 class="page-title display-6 mb-3">A quieter place to keep your reading life in order.</h1>
         <p class="muted-copy mb-4">
-          Use the demo accounts to step into the full reading experience with a clean library, curated reviews, and polished tracking tools.
+          Sign in with one of the seeded demo accounts to manage your profile, upload an avatar, and keep the rest of your reading life in sync.
         </p>
 
         <div class="d-grid gap-3">
           <div class="mini-panel p-3">
-            <div class="small text-uppercase muted-copy mb-1">Sample readers</div>
-            <div class="fw-semibold">reader1@example.com / pass123</div>
-            <div class="fw-semibold">reader2@example.com / pass123</div>
+            <div class="small text-uppercase muted-copy mb-1">Demo readers</div>
+            <button class="btn btn-link p-0 text-start d-block" type="button" data-demo-account="reader1@example.com">reader1@example.com / pass123</button>
+            <button class="btn btn-link p-0 text-start d-block" type="button" data-demo-account="reader2@example.com">reader2@example.com / pass123</button>
           </div>
           <div class="mini-panel p-3">
             <div class="small text-uppercase muted-copy mb-1">Admin access</div>
-            <div class="fw-semibold">admin@example.com / pass123</div>
+            <button class="btn btn-link p-0 text-start d-block" type="button" data-demo-account="admin@example.com">admin@example.com / pass123</button>
           </div>
           <div class="login-quote small muted-copy">
-            Sign in to browse books, manage your shelf, and keep the details of what you read organized in one elegant place.
+            ShelfLife uses real Supabase auth for the demo accounts, so the profile page can store avatars and reading stats on the server.
           </div>
         </div>
       </div>
@@ -29,19 +29,16 @@
       <div class="surface-panel p-4 p-lg-5 h-100">
         <span class="pill-tag mb-3">Join / Sign in</span>
         <h2 class="page-title h1 mb-2">Enter your reading room</h2>
-        <p class="muted-copy mb-4">Use any name and pick a role to simulate an authenticated session.</p>
+        <p class="muted-copy mb-4">Use the email and password for one of the seeded demo accounts.</p>
 
         <form id="login-form" class="d-grid gap-3">
           <div>
-            <label class="form-label" for="login-name">Display name</label>
-            <input id="login-name" name="name" class="form-control form-control-lg" type="text" placeholder="Alex Reader" required />
+            <label class="form-label" for="login-email">Email</label>
+            <input id="login-email" name="email" class="form-control form-control-lg" type="email" placeholder="reader1@example.com" required />
           </div>
           <div>
-            <label class="form-label" for="login-role">Role</label>
-            <select id="login-role" name="role" class="form-select form-select-lg">
-              <option value="member">Member</option>
-              <option value="admin">Admin</option>
-            </select>
+            <label class="form-label" for="login-password">Password</label>
+            <input id="login-password" name="password" class="form-control form-control-lg" type="password" placeholder="pass123" required />
           </div>
           <button class="btn btn-primary btn-lg" type="submit">Continue</button>
         </form>
