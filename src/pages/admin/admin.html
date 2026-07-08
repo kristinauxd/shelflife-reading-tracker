@@ -1,27 +1,188 @@
 <section class="admin-page fade-in-up">
-  <div class="surface-panel p-4 p-lg-5 mb-4">
-    <span class="badge text-bg-danger status-chip mb-3">Admin console</span>
-    <h1 class="page-title h2 mb-2">Administration</h1>
-    <p class="muted-copy mb-0">Use the protected wrapper to keep this area available only to elevated users.</p>
+  <div class="surface-panel surface-panel--strong p-4 p-lg-5 mb-4 admin-hero">
+    <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+      <div>
+        <span class="pill-tag pill-tag--accent mb-3">Administration</span>
+        <h1 class="page-title display-6 mb-2">Keep the catalog clean and current.</h1>
+        <p class="muted-copy mb-0">Manage books, genres, and review moderation from one place. Changes go straight to Supabase.</p>
+      </div>
+      <div class="admin-hero__meta text-end">
+        <div class="small text-uppercase muted-copy">Signed in as</div>
+        <div class="fw-semibold" data-admin-email>{{email}}</div>
+        <div class="pill-tag pill-tag--accent mt-2">Admin only</div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-4">
+      <div class="col-md-4">
+        <div class="stat-card p-3 h-100">
+          <div class="small text-uppercase muted-copy mb-1">Books</div>
+          <div class="display-6 mb-0" data-stat-books>0</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card p-3 h-100">
+          <div class="small text-uppercase muted-copy mb-1">Genres</div>
+          <div class="display-6 mb-0" data-stat-genres>0</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card p-3 h-100">
+          <div class="small text-uppercase muted-copy mb-1">Reviews</div>
+          <div class="display-6 mb-0" data-stat-reviews>0</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="row g-3">
-    <div class="col-md-4">
+  <div class="row g-4 mb-4">
+    <div class="col-lg-6">
       <div class="surface-panel p-4 h-100">
-        <div class="small muted-copy text-uppercase">Users</div>
-        <div class="display-6 fw-semibold">28</div>
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-4">
+          <div>
+            <span class="pill-tag mb-2">Books</span>
+            <h2 class="page-title h3 mb-1">Create or edit books</h2>
+            <p class="muted-copy mb-0">Use the form to add a new title or update an existing record.</p>
+          </div>
+          <button class="btn btn-outline-light btn-sm" type="button" data-action="reset-book-form">New book</button>
+        </div>
+
+        <form id="book-form" class="d-grid gap-3">
+          <input type="hidden" name="id" id="book-id" />
+          <div>
+            <label class="form-label" for="book-title">Title</label>
+            <input id="book-title" name="title" class="form-control" type="text" required />
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="book-author">Author</label>
+              <input id="book-author" name="author" class="form-control" type="text" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="book-published-year">Published year</label>
+              <input id="book-published-year" name="published_year" class="form-control" type="number" min="0" max="9999" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" for="book-genre-id">Genre</label>
+            <select id="book-genre-id" name="genre_id" class="form-select"></select>
+          </div>
+          <div>
+            <label class="form-label" for="book-cover-url">Cover URL</label>
+            <input id="book-cover-url" name="cover_url" class="form-control" type="url" placeholder="https://..." />
+          </div>
+          <div>
+            <label class="form-label" for="book-description">Description</label>
+            <textarea id="book-description" name="description" class="form-control" rows="4"></textarea>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-primary" type="submit">Save book</button>
+            <button class="btn btn-outline-light" type="button" data-action="reset-book-form">Cancel edit</button>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="col-md-4">
+
+    <div class="col-lg-6">
       <div class="surface-panel p-4 h-100">
-        <div class="small muted-copy text-uppercase">Shelves</div>
-        <div class="display-6 fw-semibold">12</div>
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-4">
+          <div>
+            <span class="pill-tag mb-2">Genres</span>
+            <h2 class="page-title h3 mb-1">Create or edit genres</h2>
+            <p class="muted-copy mb-0">Add the category list that powers the catalog and admin filters.</p>
+          </div>
+          <button class="btn btn-outline-light btn-sm" type="button" data-action="reset-genre-form">New genre</button>
+        </div>
+
+        <form id="genre-form" class="d-grid gap-3">
+          <input type="hidden" name="id" id="genre-id" />
+          <div>
+            <label class="form-label" for="genre-name">Name</label>
+            <input id="genre-name" name="name" class="form-control" type="text" required />
+          </div>
+          <div>
+            <label class="form-label" for="genre-slug">Slug</label>
+            <input id="genre-slug" name="slug" class="form-control" type="text" required />
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-primary" type="submit">Save genre</button>
+            <button class="btn btn-outline-light" type="button" data-action="reset-genre-form">Cancel edit</button>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="col-md-4">
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
       <div class="surface-panel p-4 h-100">
-        <div class="small muted-copy text-uppercase">Alerts</div>
-        <div class="display-6 fw-semibold">3</div>
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-4">
+          <div>
+            <span class="pill-tag mb-2">Books</span>
+            <h2 class="page-title h3 mb-1">Catalog records</h2>
+            <p class="muted-copy mb-0">Edit or remove books directly from the table.</p>
+          </div>
+        </div>
+        <div class="table-responsive admin-table-wrap">
+          <table class="table table-dark align-middle mb-0">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody data-books-table></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="surface-panel p-4 h-100 mb-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-4">
+          <div>
+            <span class="pill-tag mb-2">Genres</span>
+            <h2 class="page-title h3 mb-1">Genre list</h2>
+            <p class="muted-copy mb-0">Manage the categories used throughout the catalog.</p>
+          </div>
+        </div>
+        <div class="table-responsive admin-table-wrap">
+          <table class="table table-dark align-middle mb-0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Slug</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody data-genres-table></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="surface-panel p-4 h-100">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-4">
+          <div>
+            <span class="pill-tag mb-2">Moderation</span>
+            <h2 class="page-title h3 mb-1">Reviews</h2>
+            <p class="muted-copy mb-0">Delete reviews that do not belong in the public catalog.</p>
+          </div>
+        </div>
+        <div class="table-responsive admin-table-wrap">
+          <table class="table table-dark align-middle mb-0">
+            <thead>
+              <tr>
+                <th>Book</th>
+                <th>Rating</th>
+                <th>Review</th>
+                <th class="text-end">Action</th>
+              </tr>
+            </thead>
+            <tbody data-reviews-table></tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

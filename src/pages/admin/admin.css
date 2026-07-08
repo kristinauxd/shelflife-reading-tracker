@@ -1,3 +1,65 @@
 .admin-page {
   display: grid;
 }
+
+.admin-hero {
+  overflow: hidden;
+}
+
+.admin-table-wrap {
+  border: 1px solid var(--shell-border);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.admin-table-wrap .table {
+  margin-bottom: 0;
+}
+
+.admin-table-wrap .table thead th {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--shell-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-table-wrap .table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.admin-table-wrap .table td,
+.admin-table-wrap .table th {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.admin-empty {
+  color: var(--shell-muted);
+}
+
+.admin-action-btn {
+  border-radius: 999px;
+}
+
+.admin-mini-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--shell-muted);
+  font-size: 0.75rem;
+}
+
+.admin-cover {
+  width: 3rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-review-text {
+  max-width: 28rem;
+}
