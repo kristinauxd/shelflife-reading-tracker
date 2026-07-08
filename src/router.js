@@ -84,9 +84,14 @@ function handleDocumentClick(event) {
 
   if (actionButton) {
     event.preventDefault();
-    signOut();
-    showToast({ title: 'Signed out', message: 'Your session has been cleared.', variant: 'secondary' });
-    navigate('/', { replace: true });
+    void signOut()
+      .then(() => {
+        showToast({ title: 'Signed out', message: 'Your session has been cleared.', variant: 'secondary' });
+        navigate('/', { replace: true });
+      })
+      .catch((error) => {
+        showToast({ title: 'Sign out failed', message: error.message, variant: 'danger' });
+      });
   }
 }
 

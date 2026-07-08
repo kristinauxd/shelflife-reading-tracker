@@ -74,6 +74,19 @@ export function signIn({ name, role }) {
   return user;
 }
 
+async function loadSyncedUser(authUser) {
+  const [{ data: profile }, { data: roleRow }] = await Promise.all([
+    supabase.from('profiles').select('display_name,bio,avatar_url').eq('id', authUser.id).maybeSingle(),
+    supabase.from('user_roles').select('role').eq('user_id', authUser.id).maybeSingle(),
+  ]);
+
+  return normalizeUser({
+    authUser,
+    profile,
+    role: roleRow?.role,
+  });
+}
+
 export async function getCurrentUser() {
   const storedUser = readUser();
 
@@ -87,18 +100,7 @@ export async function getCurrentUser() {
     return storedUser;
   }
 
-  const authUser = data.user;
-
-  const [{ data: profile }, { data: roleRow }] = await Promise.all([
-    supabase.from('profiles').select('display_name,bio,avatar_url').eq('id', authUser.id).maybeSingle(),
-    supabase.from('user_roles').select('role').eq('user_id', authUser.id).maybeSingle(),
-  ]);
-
-  const syncedUser = normalizeUser({
-    authUser,
-    profile,
-    role: roleRow?.role,
-  });
+  const syncedUser = await loadSyncedUser(data.user);
 
   localStorage.setItem(AUTH_KEY, JSON.stringify(syncedUser));
 
@@ -115,25 +117,49 @@ export async function signInWithCredentials({ email, password }) {
     throw error;
   }
 
-  const authUser = data.user;
-
-  const [{ data: profile }, { data: roleRow }] = await Promise.all([
-    supabase.from('profiles').select('display_name,bio,avatar_url').eq('id', authUser.id).maybeSingle(),
-    supabase.from('user_roles').select('role').eq('user_id', authUser.id).maybeSingle(),
-  ]);
-
-  const user = normalizeUser({
-    authUser,
-    profile,
-    role: roleRow?.role,
-  });
+  const user = await loadSyncedUser(data.user);
 
   localStorage.setItem(AUTH_KEY, JSON.stringify(user));
 
   return user;
 }
 
+export async function signUpWithCredentials({ name, email, password }) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        display_name: name,
+      },
+    },
+  });
+
+  if (error) {
+    throw error;
+  }
+
+  if (!data.user) {
+    throw new Error('Registration did not return a user. Please try again.');
+  }
+
+  const user = await loadSyncedUser(data.user);
+
+  if (data.session) {
+    localStorage.setItem(AUTH_KEY, JSON.stringify(user));
+  }
+
+  return {
+    user,
+    session: data.session,
+  };
+}
+
 export async function signOut() {
   localStorage.removeItem(AUTH_KEY);
-  await supabase.auth.signOut();
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    throw error;
+  }
 }

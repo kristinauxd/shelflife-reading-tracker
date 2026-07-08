@@ -27,20 +27,30 @@
 
     <div class="col-lg-7 col-xl-6 offset-xl-1">
       <div class="surface-panel p-4 p-lg-5 h-100">
-        <span class="pill-tag mb-3">Join / Sign in</span>
-        <h2 class="page-title h1 mb-2">Enter your reading room</h2>
-        <p class="muted-copy mb-4">Use the email and password for one of the seeded demo accounts.</p>
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+          <span class="pill-tag">Join / Sign in</span>
+          <div class="btn-group btn-group-sm" role="tablist" aria-label="Authentication mode">
+            <button class="btn btn-outline-light active" type="button" data-auth-mode="login">Login</button>
+            <button class="btn btn-outline-light" type="button" data-auth-mode="register">Register</button>
+          </div>
+        </div>
+        <h2 class="page-title h1 mb-2" data-auth-title>Enter your reading room</h2>
+        <p class="muted-copy mb-4" data-auth-copy>Use one of the seeded demo accounts, or create a new reading profile with Supabase Auth.</p>
 
         <form id="login-form" class="d-grid gap-3">
+          <div data-auth-name-group hidden>
+            <label class="form-label" for="login-name">Display name</label>
+            <input id="login-name" name="name" class="form-control form-control-lg" type="text" placeholder="Your name" autocomplete="name" />
+          </div>
           <div>
             <label class="form-label" for="login-email">Email</label>
-            <input id="login-email" name="email" class="form-control form-control-lg" type="email" placeholder="reader1@example.com" required />
+            <input id="login-email" name="email" class="form-control form-control-lg" type="email" placeholder="reader1@example.com" autocomplete="email" required />
           </div>
           <div>
             <label class="form-label" for="login-password">Password</label>
-            <input id="login-password" name="password" class="form-control form-control-lg" type="password" placeholder="pass123" required />
+            <input id="login-password" name="password" class="form-control form-control-lg" type="password" placeholder="pass123" autocomplete="current-password" required />
           </div>
-          <button class="btn btn-primary btn-lg" type="submit">Continue</button>
+          <button class="btn btn-primary btn-lg" type="submit" data-auth-submit>Continue</button>
         </form>
       </div>
     </div>
