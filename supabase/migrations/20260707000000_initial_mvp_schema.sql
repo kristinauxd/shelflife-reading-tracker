@@ -10,7 +10,7 @@ create table if not exists public.profiles (
 
 create table if not exists public.user_roles (
   user_id uuid primary key references auth.users (id) on delete cascade,
-  role text not null check (role = 'admin')
+  role text not null default 'member' check (role in ('member', 'admin'))
 );
 
 create table if not exists public.genres (
@@ -112,6 +112,10 @@ begin
     new.raw_user_meta_data ->> 'avatar_url'
   )
   on conflict (id) do nothing;
+
+  insert into public.user_roles (user_id, role)
+  values (new.id, 'member')
+  on conflict (user_id) do nothing;
 
   return new;
 end;

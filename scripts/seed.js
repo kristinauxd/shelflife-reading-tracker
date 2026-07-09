@@ -386,10 +386,10 @@ async function seedUserRoles(users) {
     throw new Error('Admin user was not created.');
   }
 
-  const { error } = await supabase.from('user_roles').insert({
+  const { error } = await supabase.from('user_roles').upsert({
     user_id: adminUser.id,
     role: 'admin',
-  });
+  }, { onConflict: 'user_id' });
 
   if (error) {
     throw error;
