@@ -14,10 +14,15 @@
 
 .admin-table-wrap .table {
   margin-bottom: 0;
+  --bs-table-bg: #142434;
+  --bs-table-striped-bg: #142434;
+  --bs-table-hover-bg: #1b3147;
+  --bs-table-color: #f8fafc;
+  --bs-table-border-color: rgba(255, 255, 255, 0.08);
 }
 
 .admin-table-wrap .table thead th {
-  background: rgba(255, 255, 255, 0.04);
+  background: #142434;
   color: var(--shell-muted);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
@@ -25,7 +30,7 @@
 }
 
 .admin-table-wrap .table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: #1b3147;
 }
 
 .admin-table-wrap .table td,
