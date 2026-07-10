@@ -148,7 +148,7 @@ async function renderRoute() {
   if (resolved.route.protected || resolved.route.adminOnly) {
     pageContainer().innerHTML = renderProtectedWrapper({
       title: resolved.route.title,
-      description: 'This is where you can update your profile information.',
+      description: 'This is where you can see your personal information.',
       content: pageMarkup,
       requiredRole: resolved.route.adminOnly ? 'admin' : 'user',
     });
