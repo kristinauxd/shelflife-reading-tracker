@@ -1,32 +1,7 @@
 <section class="auth-page fade-in-up">
-  <div class="row g-4 align-items-stretch">
-    <div class="col-lg-5">
-      <div class="login-aside surface-panel surface-panel--strong p-4 p-lg-5 h-100">
-        <span class="pill-tag pill-tag--accent mb-3">Authentication</span>
-        <h1 class="page-title display-6 mb-3">A quieter place to keep your reading life in order.</h1>
-        <p class="muted-copy mb-4">
-          Sign in with one of the seeded demo accounts to manage your profile, upload an avatar, and keep the rest of your reading life in sync.
-        </p>
-
-        <div class="d-grid gap-3">
-          <div class="mini-panel p-3">
-            <div class="small text-uppercase muted-copy mb-1">Demo readers</div>
-            <button class="btn btn-link p-0 text-start d-block" type="button" data-demo-account="reader1@example.com">reader1@example.com / pass123</button>
-            <button class="btn btn-link p-0 text-start d-block" type="button" data-demo-account="reader2@example.com">reader2@example.com / pass123</button>
-          </div>
-          <div class="mini-panel p-3">
-            <div class="small text-uppercase muted-copy mb-1">Admin access</div>
-            <button class="btn btn-link p-0 text-start d-block" type="button" data-demo-account="admin@example.com">admin@example.com / pass123</button>
-          </div>
-          <div class="login-quote small muted-copy">
-            ShelfLife uses real Supabase auth for the demo accounts, so the profile page can store avatars and reading stats on the server.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-7 col-xl-6 offset-xl-1">
-      <div class="surface-panel p-4 p-lg-5 h-100">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8 col-xl-6">
+      <div class="surface-panel p-4 p-lg-5 auth-card mx-auto">
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
           <span class="pill-tag">Join / Sign in</span>
           <div class="btn-group btn-group-sm" role="tablist" aria-label="Authentication mode">
@@ -34,7 +9,7 @@
             <button class="btn btn-outline-light" type="button" data-auth-mode="register">Register</button>
           </div>
         </div>
-        <h2 class="page-title h1 mb-2" data-auth-title>Enter your reading room</h2>
+        <h1 class="page-title display-6 mb-2" data-auth-title>Enter your reading room</h1>
         <p class="muted-copy mb-4" data-auth-copy>Use one of the seeded demo accounts, or create a new reading profile with Supabase Auth.</p>
 
         <form id="login-form" class="d-grid gap-3">
